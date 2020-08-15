@@ -261,21 +261,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      Container(
-                                          margin: const EdgeInsets.only(right: 4.0),
-                                          height: 15,
-                                          child: Image.asset('assets/images/red_arrow.png')),
-                                      Text(
-                                        '${NumberFormatCustom.getCustomFormatNumber(summary?.global?.newConfirmed ?? 0)}',
-                                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
+                                Visibility(
+                                  visible: (summary?.global?.newConfirmed ?? 0) > 0,
+                                  child: Container(
+                                    padding: const EdgeInsets.only(top: 4.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: <Widget>[
+                                        Container(
+                                            margin: const EdgeInsets.only(right: 4.0),
+                                            height: 15,
+                                            child: Image.asset('assets/images/red_arrow.png')),
+                                        Text(
+                                          '${NumberFormatCustom.getCustomFormatNumber(summary?.global?.newConfirmed ?? 0)}',
+                                          style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],
